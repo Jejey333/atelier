@@ -33,3 +33,17 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # === AJOUT : Notification Discord (succès + échec) ===
+      - name: Notification Discord
+        if: always()  # S’exécute quel que soit le résultat du job
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: |
+            Déploiement GitHub Pages ${{ job.status == 'success' && 'réussi 🚀' || 'échoué ❌' }}
+            URL du site : ${{ steps.deployment.outputs.page_url }}
+            Commit : ${{ github.sha }}
+            Par : ${{ github.actor }}
+            Lien du workflow : https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
