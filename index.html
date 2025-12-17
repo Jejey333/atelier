@@ -3,31 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atelier CI/CD</title>
+  <meta name="description" content="Atelier CI/CD - Pipeline d'intégration et déploiement continu">
+  <meta name="author" content="Votre Nom">
+  <title>Atelier CI/CD - Pipeline Automatisé</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 </head>
 <body>
   <div class="container">
-    <span class="emoji">🚀</span>
-    <h1>Atelier CI/CD</h1>
+    <header>
+      <span class="emoji">🚀</span>
+      <h1>Atelier CI/CD</h1>
+    </header>
     
-    <div class="status">Déploiement automatique réussi</div>
-    
-    <p>Votre pipeline d'intégration et de déploiement continu est opérationnel et fonctionne parfaitement.</p>
-    
-    <button onclick="testPipeline()">Tester le Pipeline</button>
-    
-    <div class="counter" id="counter"></div>
-    
-    <div class="info-box">
-      <h3>Fonctionnalités CI/CD</h3>
-      <ul>
-        <li>Tests automatisés</li>
-        <li>Déploiement continu</li>
-        <li>Monitoring en temps réel</li>
-        <li>Rollback automatique</li>
-      </ul>
-    </div>
+    <main>
+      <div class="status" role="status" aria-live="polite">
+        Déploiement automatique réussi
+      </div>
+      
+      <p class="description">
+        Votre pipeline d'intégration et de déploiement continu est opérationnel et fonctionne parfaitement.
+      </p>
+      
+      <button onclick="testPipeline()" class="btn-primary" aria-label="Tester le pipeline CI/CD">
+        Tester le Pipeline
+      </button>
+      
+      <div class="counter" id="counter" aria-live="polite"></div>
+      
+      <section class="info-box">
+        <h3>Fonctionnalités CI/CD</h3>
+        <ul>
+          <li>Tests automatisés</li>
+          <li>Déploiement continu</li>
+          <li>Monitoring en temps réel</li>
+          <li>Rollback automatique</li>
+        </ul>
+      </section>
+
+      <section class="stats">
+        <div class="stat-card">
+          <span class="stat-icon">⚡</span>
+          <h4>Vitesse</h4>
+          <p>2.3s</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">✓</span>
+          <h4>Succès</h4>
+          <p>100%</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🔄</span>
+          <h4>Builds</h4>
+          <p id="buildCount">0</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Atelier CI/CD | Version 2.0</p>
+    </footer>
   </div>
 
   <script src="js/app.js"></script>
